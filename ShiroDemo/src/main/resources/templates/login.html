@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="author" content="pan_junbiao的博客">
+    <style>
+        .txtBox{
+            padding: 3px;
+            width: 250px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div align="center">请输入登录信息
+    <form name="myForm" method="post" action="/login" onsubmit="SubmitLogin()">
+        <table>
+            <tr>
+                <td>用户姓名：</td>
+                <td><input type="text" name="userName" value="pan_junbiao的博客" class="txtBox" /></td>
+            </tr>
+            <tr>
+                <td>登录密码：</td>
+                <td><input type="password" name="password" value="123456" class="txtBox"/></td>
+            </tr>
+            <!-- 以下是提交、取消按钮 -->
+            <tr>
+                <td>
+                    <input type="submit" value="登录" />
+                </td>
+                <td>
+                    <input type="reset" value="取消" />
+                </td>
+            </tr>
+        </table>
+        <p style="color:red" th:text="${message}"></p>
+    </form>
+</div>
+</body>
+<script>
+    //提交登录
+    function SubmitLogin() {
+        //判断用户名是否为空
+        if (!myForm.userName.value) {
+            alert("请输入用户姓名！");
+            myForm.userName.focus();
+            return false;
+        }
+
+        //判断密码是否为空
+        if (!myForm.password.value) {
+            alert("请输入登录密码！");
+            myForm.password.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>

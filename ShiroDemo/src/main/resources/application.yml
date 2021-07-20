@@ -1,0 +1,30 @@
+#Spring配置
+spring:
+  #热部署
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  #使用Thymeleaf模板引擎
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false  #使用Thymeleaf模板引擎，关闭缓存
+    servlet:
+      content-type: text/html
+  # JPA数据库连接信息
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_admin?useSSL=false&amp
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+    open-in-view: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true #使用延时加载时控制Session的生命周期
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: update

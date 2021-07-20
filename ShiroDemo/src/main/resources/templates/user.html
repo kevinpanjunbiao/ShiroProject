@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户操作</title>
+    <meta name="author" content="pan_junbiao的博客">
+</head>
+<body>
+    <h2>恭喜您，有操作权限！</h2>
+    <p>您好，欢迎访问 pan_junbiao的博客</p>
+    <p>博客地址：https://blog.csdn.net/pan_junbiao</p>
+    <p th:text="'当前操作：' + ${message}"></p>
+</body>
+</html>

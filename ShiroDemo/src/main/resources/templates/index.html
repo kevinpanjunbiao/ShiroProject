@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="author" content="pan_junbiao的博客">
+    <style>
+        table { border-collapse: collapse; margin-bottom: 10px}
+        table,table tr th, table tr td { border:1px solid #000000; padding: 5px 10px;}
+        a{margin-right: 10px;}
+    </style>
+</head>
+<body>
+<div align="center">
+    <table>
+        <caption>当前登录人信息</caption>
+        <tr>
+            <th>用户ID：</th>
+            <td th:text="${userInfo.userId}"></td>
+        </tr>
+        <tr>
+            <th>用户姓名：</th>
+            <td th:text="${userInfo.userName}"></td>
+        </tr>
+        <tr>
+            <th>博客地址：</th>
+            <td th:text="${userInfo.blogUrl}"></td>
+        </tr>
+        <tr>
+            <th>博客信息：</th>
+            <td th:text="${userInfo.blogRemark}"></td>
+        </tr>
+        <tr>
+            <th>角色信息：</th>
+            <td>
+                <th:block th:each="item:${userInfo.roleList}">
+                    <span th:text="${item.roleName}"></span>
+                </th:block>
+            </td>
+        </tr>
+        <tr>
+            <th>注销操作：</th>
+            <td>
+                <a href="logout" onclick="return confirm('确认注销吗？');" >注销</a>
+            </td>
+        </tr>
+        <tr>
+            <th>授权测试：</th>
+            <td>
+                <a href="/user/searchUser" >查询用户</a>
+                <a href="/user/addUser" >新增用户</a>
+                <a href="/user/editUser" >修改用户</a>
+                <a href="/user/deleteUser" >删除用户</a>
+            </td>
+        </tr>
+        <tr>
+            <th>无权限测试：</th>
+            <td>
+                <a href="/user/summarizeUser" >用户统计（无权限）</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
